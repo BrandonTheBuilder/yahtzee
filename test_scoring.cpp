@@ -16,8 +16,10 @@ TEST(ScoringTest, ScoringFullHouse) {
 
 TEST(ScoringTest, ScoringStraight) {
     int smallStraight[5] = {4, 2, 1, 6, 3};
+    int straightTwo[5] = {2, 1, 3, 3, 4};
     int largeStraight[5] = {2, 1, 3, 4, 5};
     int die_no_score[5] = {6, 5, 1, 2, 3};
+    ASSERT_EQ(30, scoreStraight(straightTwo, 4));
     ASSERT_EQ(30, scoreStraight(smallStraight, 4));
     ASSERT_EQ(0, scoreStraight(smallStraight, 5));
     ASSERT_EQ(30, scoreStraight(largeStraight, 5));
