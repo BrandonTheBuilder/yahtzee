@@ -20,7 +20,7 @@ test: test_scoring.o
 test_scoring.o: scoring.o
 	$(CXX) $(CXXFLAGS) -c test_scoring.cpp
 
-scoring.o: game/scoring.cpp
+scoring.o: game/scoring.h
 	$(CXX) $(CXXFLAGS) -c game/scoring.cpp
 
 clean:
