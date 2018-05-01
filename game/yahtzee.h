@@ -3,8 +3,6 @@
 
 class Yahtzee {
 public:
-    Yahtzee();
-    ~Yahtzee() {}
     void roll(int diceToRoll[5]);
     void scoreRound(int scoringClass);
     void startGame();
