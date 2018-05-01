@@ -1,6 +1,16 @@
 #include "yahtzee.h"
 #include <algorithm>
+// Util functions
+int sum(int die[5]) {
+    int sum = 0;
+    for (int i = 0; i < 5; ++i)
+    {
+        sum += die[i];
+    }
+    return sum;
+}
 
+// Scoring functions
 int scoreNumber(int die[5], int number) {
     int score = 0;
     for (int i = 0; i < 5; ++i)
@@ -92,13 +102,4 @@ int scoreChance(int die[5]) {
 
 int scoreYahtzee(int die[5]) {
     return 0;
-}
-
-int sum(int die[5]) {
-    int sum = 0;
-    for (int i = 0; i < 5; ++i)
-    {
-        sum += die[i];
-    }
-    return sum;
 }
