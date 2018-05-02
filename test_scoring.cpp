@@ -68,6 +68,11 @@ TEST(TestStraight, TestStraightSix) {
     ASSERT_EQ(30, scoreStraight(die, 5));
 }
 
+TEST(TestChance, One) {
+    int die[5] = {2, 2, 1, 3, 4};
+    ASSERT_EQ(12, scoreChance(die));
+}
+
 TEST(TestSort, TestSortOne) {
     int die[5] = {2, 1, 3, 3, 4};
     int expected[6] = {1, 1, 2, 1, 0, 0};

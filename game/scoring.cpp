@@ -97,7 +97,7 @@ int scoreStraight(int die[5], int cutoff) {
 }
 
 int scoreChance(int die[5]) {
-    return 0;
+    return sum(die);
 }
 
 int scoreYahtzee(int die[5]) {
