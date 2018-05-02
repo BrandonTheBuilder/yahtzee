@@ -76,27 +76,23 @@ int scoreFullHouse(int die[5]) {
 }
 
 int scoreStraight(int die[5], int cutoff) {
-    int die_cp[5];
-    std::copy(die, die + 5, die_cp);
-    std::sort(die_cp, die_cp + 5);
-    // Start with the first die in the sorted list
-    int previous = die_cp[0];
-    // set the count to one
-    int count = 1;
-    for (int i = 1; i < 5; ++i)
+    int ranks[6] = {0};
+    sortDie(die, ranks);
+    int count = 0;
+    // Container sort the whole array
+    for (int i = 0; i < 6; ++i)
     {
-        if (previous + 1 == die_cp[i])
-        {
+        //If it contains at least one of the value increment the count
+        if(ranks[i] >= 1) {
             count += 1;
         }
         else {
-            count = 1;
+            // If it does not contain a value reset the count
+            count = 0;
         }
-        if (count >= cutoff)
-        {
+        if(count >= cutoff) {
             return 30;
         }
-        previous = die_cp[i];
     }
     return 0;
 }
