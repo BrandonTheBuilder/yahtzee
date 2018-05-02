@@ -73,6 +73,26 @@ TEST(TestChance, One) {
     ASSERT_EQ(12, scoreChance(die));
 }
 
+TEST(TestScoreYahtzee, One) {
+    int die[5] = {1, 1, 1, 1, 1};
+    ASSERT_EQ(50, scoreYahtzee(die));
+}
+
+TEST(TestScoreYahtzee, Two) {
+    int die[5] = {2, 2, 1, 2, 2};
+    ASSERT_EQ(0, scoreYahtzee(die));
+}
+
+TEST(TestScoreYahtzee, Three) {
+    int die[5] = {6, 6, 6, 6, 6};
+    ASSERT_EQ(50, scoreYahtzee(die));
+}
+
+TEST(TestScoreYahtzee, Four) {
+    int die[5] = {1, 3, 2, 4, 6};
+    ASSERT_EQ(0, scoreYahtzee(die));
+}
+
 TEST(TestSort, TestSortOne) {
     int die[5] = {2, 1, 3, 3, 4};
     int expected[6] = {1, 1, 2, 1, 0, 0};

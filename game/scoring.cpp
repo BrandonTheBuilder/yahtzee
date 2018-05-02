@@ -101,5 +101,14 @@ int scoreChance(int die[5]) {
 }
 
 int scoreYahtzee(int die[5]) {
+    int ranks[6] = {0};
+    sortDie(die, ranks);
+    for (int i = 0; i < 6; ++i)
+     {
+         if (ranks[i] >= 5)
+         {
+             return 50;
+         }
+     } 
     return 0;
 }
