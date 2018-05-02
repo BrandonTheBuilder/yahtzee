@@ -14,18 +14,40 @@ TEST(ScoringTest, ScoringFullHouse) {
     ASSERT_EQ(0, scoreFullHouse(die_no_score));
 }
 
-TEST(ScoringTest, ScoringStraight) {
-    int smallStraight[5] = {4, 2, 1, 6, 3};
-    int straightTwo[5] = {2, 1, 3, 3, 4};
-    int largeStraight[5] = {2, 1, 3, 4, 5};
-    int die_no_score[5] = {6, 5, 1, 2, 3};
-    ASSERT_EQ(30, scoreStraight(straightTwo, 4));
-    ASSERT_EQ(30, scoreStraight(smallStraight, 4));
-    ASSERT_EQ(0, scoreStraight(smallStraight, 5));
-    ASSERT_EQ(30, scoreStraight(largeStraight, 5));
-    ASSERT_EQ(30, scoreStraight(largeStraight, 4));
-    ASSERT_EQ(0, scoreStraight(die_no_score, 4));
-    ASSERT_EQ(0, scoreStraight(die_no_score, 5));
+TEST(TestStraight, TestStraightOne) {
+    int die[5] = {4, 2, 1, 6, 3};
+    ASSERT_EQ(30, scoreStraight(die, 4));
+    ASSERT_EQ(0, scoreStraight(die, 5));
+}
+
+TEST(TestStraight, TestStraightTwo) {
+    int die[5] = {1, 3, 6, 5, 4};
+    ASSERT_EQ(30, scoreStraight(die, 4));
+    ASSERT_EQ(0, scoreStraight(die, 5));
+}
+
+TEST(TestStraight, TestStraightThree) {
+    int die[5] = {1, 3, 2, 5, 4};
+    ASSERT_EQ(30, scoreStraight(die, 4));
+    ASSERT_EQ(30, scoreStraight(die, 5));
+}
+
+TEST(TestStraight, TestStraightFour) {
+    int die[5] = {2, 1, 3, 3, 4};
+    ASSERT_EQ(30, scoreStraight(die, 4));
+    ASSERT_EQ(0, scoreStraight(die, 5));
+}
+
+TEST(TestStraight, TestStraightFive) {
+    int die[5] = {4, 2, 4, 5, 3};
+    ASSERT_EQ(30, scoreStraight(die, 4));
+    ASSERT_EQ(0, scoreStraight(die, 5));
+}
+
+TEST(TestStraight, TestStraightSix) {
+    int die[5] = {4, 2, 5, 6, 3};
+    ASSERT_EQ(30, scoreStraight(die, 4));
+    ASSERT_EQ(30, scoreStraight(die, 5));
 }
 
 TEST(TestSort, TestSortOne) {
