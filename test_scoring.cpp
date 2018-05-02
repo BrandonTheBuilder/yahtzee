@@ -7,11 +7,29 @@ TEST(ScoringTest, ScoreXOfAKind) {
     ASSERT_EQ(expected, scoreXOfAKind(die, 3));
 }
 
-TEST(ScoringTest, ScoringFullHouse) {
-    int die[5] = {4, 4, 4, 2, 2};
-    int die_no_score[5] = {4, 4, 1, 2, 3};
+TEST(ScoringScoringFullHouse, One) {
+    int die[5] = {3, 3, 3, 1, 1};
     ASSERT_EQ(25, scoreFullHouse(die));
-    ASSERT_EQ(0, scoreFullHouse(die_no_score));
+}
+
+TEST(ScoringScoringFullHouse, Two) {
+    int die[5] = {4, 4, 4, 6, 6};
+    ASSERT_EQ(25, scoreFullHouse(die));
+}
+
+TEST(ScoringScoringFullHouse, Three) {
+    int die[5] = {4, 5, 4, 6, 6};
+    ASSERT_EQ(0, scoreFullHouse(die));
+}
+
+TEST(ScoringScoringFullHouse, Four) {
+    int die[5] = {2, 2, 2, 1, 6};
+    ASSERT_EQ(0, scoreFullHouse(die));
+}
+
+TEST(ScoringScoringFullHouse, Five) {
+    int die[5] = {1, 2, 1, 2, 1};
+    ASSERT_EQ(25, scoreFullHouse(die));
 }
 
 TEST(TestStraight, TestStraightOne) {

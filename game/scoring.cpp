@@ -52,17 +52,16 @@ int scoreXOfAKind(int die[5], int x) {
 }
 
 int scoreFullHouse(int die[5]) {
-    int ranks[5] = {0};
+    int ranks[6] = {0};
+    sortDie(die, ranks);
     int three_house = 0;
     int two_house = 0;
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 6; ++i)
     {
-        int index = die[i]-1; 
-        ranks[index] += 1;
-        if(ranks[index] == 2) {
+        if(ranks[i] == 2) {
             two_house = 1;
         }
-        else if (ranks[index] == 3)
+        else if (ranks[i] == 3)
         {
             three_house = 1;
         }
@@ -94,10 +93,6 @@ int scoreStraight(int die[5], int cutoff) {
             return 30;
         }
     }
-    return 0;
-}
-
-int scoreLargeStraight(int die[5]) {
     return 0;
 }
 
