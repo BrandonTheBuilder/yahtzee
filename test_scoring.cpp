@@ -32,37 +32,37 @@ TEST(ScoringScoringFullHouse, Five) {
     ASSERT_EQ(25, scoreFullHouse(die));
 }
 
-TEST(TestStraight, TestStraightOne) {
+TEST(TestStraight, One) {
     int die[5] = {4, 2, 1, 6, 3};
     ASSERT_EQ(30, scoreStraight(die, 4));
     ASSERT_EQ(0, scoreStraight(die, 5));
 }
 
-TEST(TestStraight, TestStraightTwo) {
+TEST(TestStraight, Two) {
     int die[5] = {1, 3, 6, 5, 4};
     ASSERT_EQ(30, scoreStraight(die, 4));
     ASSERT_EQ(0, scoreStraight(die, 5));
 }
 
-TEST(TestStraight, TestStraightThree) {
+TEST(TestStraight, Three) {
     int die[5] = {1, 3, 2, 5, 4};
     ASSERT_EQ(30, scoreStraight(die, 4));
     ASSERT_EQ(30, scoreStraight(die, 5));
 }
 
-TEST(TestStraight, TestStraightFour) {
+TEST(TestStraight, Four) {
     int die[5] = {2, 1, 3, 3, 4};
     ASSERT_EQ(30, scoreStraight(die, 4));
     ASSERT_EQ(0, scoreStraight(die, 5));
 }
 
-TEST(TestStraight, TestStraightFive) {
+TEST(TestStraight, Five) {
     int die[5] = {4, 2, 4, 5, 3};
     ASSERT_EQ(30, scoreStraight(die, 4));
     ASSERT_EQ(0, scoreStraight(die, 5));
 }
 
-TEST(TestStraight, TestStraightSix) {
+TEST(TestStraight, Six) {
     int die[5] = {4, 2, 5, 6, 3};
     ASSERT_EQ(30, scoreStraight(die, 4));
     ASSERT_EQ(30, scoreStraight(die, 5));
@@ -93,7 +93,7 @@ TEST(TestScoreYahtzee, Four) {
     ASSERT_EQ(0, scoreYahtzee(die));
 }
 
-TEST(TestSort, TestSortOne) {
+TEST(TestSort, One) {
     int die[5] = {2, 1, 3, 3, 4};
     int expected[6] = {1, 1, 2, 1, 0, 0};
     int sorted[6] = {0};
@@ -104,7 +104,7 @@ TEST(TestSort, TestSortOne) {
     }
 }
 
-TEST(TestSort, TestSortTwo) {
+TEST(TestSort, Two) {
     int die[5] = {6, 5, 1, 2, 3};
     int expected[6] = {1, 1, 1, 0, 1, 1};
     int sorted[6] = {0};
@@ -115,7 +115,7 @@ TEST(TestSort, TestSortTwo) {
     }
 }
 
-TEST(TestSort, TestSortThree) {
+TEST(TestSort, Three) {
     int die[5] = {4, 2, 1, 6, 3};
     int expected[6] = {1, 1, 1, 1, 0, 1};
     int sorted[6] = {0};
@@ -126,7 +126,7 @@ TEST(TestSort, TestSortThree) {
     }
 }
 
-TEST(TestSort, TestSortFour) {
+TEST(TestSort, Four) {
     int die[5] = {6, 5, 1, 2, 2};
     int expected[6] = {1, 2, 0, 0, 1, 1};
     int sorted[6] = {0};
@@ -137,7 +137,7 @@ TEST(TestSort, TestSortFour) {
     }
 }
 
-TEST(TestSort, TestSortFive) {
+TEST(TestSort, Five) {
     int die[5] = {5, 4, 3, 2, 1};
     int expected[6] = {1, 1, 1, 1, 1, 0};
     int sorted[6] = {0};
