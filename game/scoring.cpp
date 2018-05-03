@@ -29,10 +29,6 @@ int scoreNumber(int die[5], int number) {
             score += number;
         }
     }
-    if (score >= 63)
-    {
-        score += 35;
-    }
     return score;
 }
 
