@@ -1,8 +1,5 @@
 #include "yahtzee.h"
 
-Yahtzee::Yahtzee() { 
-}   
-
 void Yahtzee::startGame() {
     std::cout << "Welcome to Yahtzee!!";
     for (int i = 1; i <= 13; ++i)
@@ -76,10 +73,6 @@ void Yahtzee::startGame() {
             }
         }
     }
-}
-
-void Yahtzee::roll(int diceToRoll[5]) {
-
 }
 
 void Yahtzee::scoreRound(int scoringClass) {
