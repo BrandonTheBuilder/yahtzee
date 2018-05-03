@@ -10,6 +10,8 @@ int sum(int die[5]) {
     return sum;
 }
 
+//Funtions for scoring yahtzee hand
+
 // Out is an array initialized to zero in which to hold the count
 int sortDie(int die[5], int out[6]) {
     for (int i = 0; i < 5; ++i)
@@ -19,19 +21,25 @@ int sortDie(int die[5], int out[6]) {
     return 0;
 }
 
-// Scoring functions
-int scoreNumber(int die[5], int number) {
+/*
+    scores x points for each die showing x pips
+*/
+int scoreNumber(int die[5], int x) {
     int score = 0;
     for (int i = 0; i < 5; ++i)
     {
-        if (die[i] == number)
+        if (die[i] == x)
         {
-            score += number;
+            score += x;
         }
     }
     return score;
 }
 
+/*
+    scores the total pips shown on all die if at least
+    x are the same rank. 
+*/
 int scoreXOfAKind(int die[5], int x) {
     int ranks[6] = {0};
     sortDie(die, ranks);
@@ -44,6 +52,10 @@ int scoreXOfAKind(int die[5], int x) {
     return 0;
 }
 
+/*
+    scores 25 if the roll has 3 dice showing one rank and 
+    2 showing another. 
+*/
 int scoreFullHouse(int die[5]) {
     int ranks[6] = {0};
     sortDie(die, ranks);
@@ -67,6 +79,10 @@ int scoreFullHouse(int die[5]) {
     return 0;
 }
 
+/*
+    If cutoff die show consecutive ranks scores 30 if the cutoff is 
+    4 scores 40 if the cutoff is 5. 
+*/
 int scoreStraight(int die[5], int cutoff) {
     int ranks[6] = {0};
     sortDie(die, ranks);
@@ -83,16 +99,22 @@ int scoreStraight(int die[5], int cutoff) {
             count = 0;
         }
         if(count >= cutoff) {
-            return 30;
+            return 40 - (5-cutoff) * 10;
         }
     }
     return 0;
 }
 
+/*
+    scores the sum of all pips shown on die. 
+*/
 int scoreChance(int die[5]) {
     return sum(die);
 }
 
+/*
+    Scores 50 points if all die show the same rank
+*/
 int scoreYahtzee(int die[5]) {
     int ranks[6] = {0};
     sortDie(die, ranks);

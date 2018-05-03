@@ -65,7 +65,7 @@ TEST(TestStraight, Two) {
 TEST(TestStraight, Three) {
     int die[5] = {1, 3, 2, 5, 4};
     ASSERT_EQ(30, scoreStraight(die, 4));
-    ASSERT_EQ(30, scoreStraight(die, 5));
+    ASSERT_EQ(40, scoreStraight(die, 5));
 }
 
 TEST(TestStraight, Four) {
@@ -83,7 +83,7 @@ TEST(TestStraight, Five) {
 TEST(TestStraight, Six) {
     int die[5] = {4, 2, 5, 6, 3};
     ASSERT_EQ(30, scoreStraight(die, 4));
-    ASSERT_EQ(30, scoreStraight(die, 5));
+    ASSERT_EQ(40, scoreStraight(die, 5));
 }
 
 TEST(TestChance, One) {

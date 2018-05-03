@@ -6,7 +6,6 @@
 CXX = g++
 CXXFLAGS = -Wall -g -std=c++11
 LDFLAGS =  /usr/lib/libgtest_main.a -lgtest -lpthread
-# /usr/lib/libgtest.a /usr/lib/libgtest_main.a -lpthread
 
 # ****************************************************
 # Targets needed to bring the executable up to date
