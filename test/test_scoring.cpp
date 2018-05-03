@@ -1,10 +1,28 @@
 #include "../game/scoring.cpp"
 #include <gtest/gtest.h>
 
-TEST(ScoringTest, ScoreXOfAKind) {
+TEST(ScoreXOfAKind, one) {
+    int die[5] = {1, 2, 1, 1, 1};
+    int expected = 6;
+    ASSERT_EQ(expected, scoreXOfAKind(die, 4));
+}
+
+TEST(ScoreXOfAKind, two) {
     int die[5] = {4, 4, 4, 6, 5};
     int expected = 23;
     ASSERT_EQ(expected, scoreXOfAKind(die, 3));
+}
+
+TEST(ScoreXOfAKind, three) {
+    int die[5] = {3, 3, 3, 1, 2};
+    int expected = 12;
+    ASSERT_EQ(expected, scoreXOfAKind(die, 3));
+}
+
+TEST(ScoreXOfAKind, sixes) {
+    int die[5] = {6, 6, 6, 6, 5};
+    int expected = 29;
+    ASSERT_EQ(expected, scoreXOfAKind(die, 4));
 }
 
 TEST(ScoringScoringFullHouse, One) {
