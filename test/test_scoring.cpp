@@ -1,4 +1,4 @@
-#include "game/scoring.cpp"
+#include "../game/scoring.cpp"
 #include <gtest/gtest.h>
 
 TEST(ScoringTest, ScoreXOfAKind) {
@@ -146,9 +146,4 @@ TEST(TestSort, Five) {
     {
         EXPECT_EQ(sorted[i], expected[i]) << "Vectors differ at index " << i;
     }
-}
-
-int test_main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
