@@ -33,14 +33,11 @@ int scoreNumber(int die[5], int number) {
 }
 
 int scoreXOfAKind(int die[5], int x) {
-    int numbers[5] = {0};
-    for (int i = 0; i < 5; ++i)
+    int ranks[6] = {0};
+    sortDie(die, ranks);
+    for (int i = 0; i < 6; ++i)
     {
-        numbers[die[i]-1] += 1;
-    }
-    for (int i = 0; i < 5; ++i)
-    {
-        if(numbers[i] >= x) {
+        if(ranks[i] >= x) {
             return sum(die);
         }
     }
