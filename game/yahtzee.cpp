@@ -12,8 +12,8 @@ void Yahtzee::startGame() {
                 std::cout << "Time for the first roll \n";
                 for (int i = 0; i < 5; ++i)
                 {
-                    this->dice[i] = this->gameDie.roll();
-                    std::cout << this->dice[i] << ", ";
+                    _dice[i] = _gameDie.roll();
+                    std::cout << _dice[i] << ", ";
                 }
 
             }
@@ -27,9 +27,9 @@ void Yahtzee::startGame() {
                 {
                     if(i == dieToRoll) 
                     {
-                        this->dice[i] = this->gameDie.roll();
+                        _dice[i] = _gameDie.roll();
                     }
-                    std::cout << this->dice[i] << ", ";
+                    std::cout << _dice[i] << ", ";
                 }
                 std::cout << "\n";
             }
@@ -46,9 +46,9 @@ void Yahtzee::startGame() {
                 {
                     if (diceToRoll[i] == 1)
                     {
-                        this->dice[i] = this->gameDie.roll();
+                        _dice[i] = _gameDie.roll();
                     }
-                    std::cout << this->dice[i] << ", ";
+                    std::cout << _dice[i] << ", ";
                 } 
                 std::cout << "\n";
             }
@@ -64,8 +64,8 @@ void Yahtzee::startGame() {
             int scoringClass;
             std::cout << "Assign a scoring class, 0-12\n";
             std::cin >> scoringClass;
-            if(this->usedClasses[scoringClass] == 0) {
-                this->scoreRound(scoringClass);
+            if(_usedClasses[scoringClass] == 0) {
+                scoreRound(scoringClass);
                 roundScored = 1;
             }
             else {
@@ -76,51 +76,51 @@ void Yahtzee::startGame() {
 }
 
 void Yahtzee::scoreRound(int scoringClass) {
-    this->usedClasses[scoringClass] = 1;
+    _usedClasses[scoringClass] = 1;
     int roundScore = 0;
     switch(scoringClass) {
         case 0 :
-            roundScore += scoreNumber(this->dice, 1);
+            roundScore += scoreNumber(_dice, 1);
             break;
         case 1 :
-            roundScore += scoreNumber(this->dice, 2);
+            roundScore += scoreNumber(_dice, 2);
             break;
         case 2 :
-            roundScore += scoreNumber(this->dice, 3);
+            roundScore += scoreNumber(_dice, 3);
             break;
         case 3 :
-            roundScore += scoreNumber(this->dice, 4);
+            roundScore += scoreNumber(_dice, 4);
             break;
         case 4 :
-            roundScore += scoreNumber(this->dice, 5);
+            roundScore += scoreNumber(_dice, 5);
             break;
         case 5 :
-            roundScore += scoreNumber(this->dice, 6);
+            roundScore += scoreNumber(_dice, 6);
             break;
         case 6 :
-            roundScore += scoreXOfAKind(this->dice, 3);
+            roundScore += scoreXOfAKind(_dice, 3);
             break;
         case 7 :
-            roundScore += scoreXOfAKind(this->dice, 4);
+            roundScore += scoreXOfAKind(_dice, 4);
             break;
         case 8 :
-            roundScore += scoreFullHouse(this->dice);
+            roundScore += scoreFullHouse(_dice);
             break;
         case 9 :
-            roundScore += scoreStraight(this->dice, 4);
+            roundScore += scoreStraight(_dice, 4);
             break; 
         case 10 :
-            roundScore += scoreStraight(this->dice, 5);
+            roundScore += scoreStraight(_dice, 5);
             break;
         case 11 :
-            roundScore += scoreChance(this->dice);
+            roundScore += scoreChance(_dice);
             break;
         case 12 :
-            roundScore += scoreYahtzee(this->dice);
+            roundScore += scoreYahtzee(_dice);
             break;
     }
-    std::cout << "Initial score: " << this->score << "\n";
+    std::cout << "Initial score: " << _score << "\n";
     std::cout << "Round score: " << roundScore << "\n";
-    this->score += roundScore;
-    std::cout << "New score: " << this->score << "\n";
+    _score += roundScore;
+    std::cout << "New score: " << _score << "\n";
 }
