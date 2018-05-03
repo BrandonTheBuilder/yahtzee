@@ -24,7 +24,7 @@ test_yahtzee: test_yahtzee.o
 	$(CXX) $(CXXFLAGS) -o test_yahtzee $(test_files) $(LDFLAGS)
 
 test_yahtzee.o: scoring.o 
-	$(CXX) $(CXXFLAGS) -c $(test_files) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) -c $(test_files)
 
 main.o: yahtzee.o scoring.o die.o
 	$(CXX) $(CXXFLAGS) -c main.cpp
