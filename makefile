@@ -10,20 +10,16 @@ LDFLAGS =  /usr/lib/libgtest_main.so -lgtest -lpthread
 # ****************************************************
 # Targets needed to bring the executable up to date
 main_obj = main.o yahtzee.o scoring.o die.o
-test_obj = test_yahtzee.o test_scoring.o
-test_files = test/test_scoring.cpp
+test_files = test/test_scoring.cpp test/test_yahtzee.cpp
 
-default: yahtzee test_yahtzee
+default: yahtzee test
 	./test_yahtzee
 
 yahtzee: $(main_obj)
 	$(CXX) $(CXXFLAGS) -o yahtzee $(main_obj)
 
-test_yahtzee: test_yahtzee.o
+test: yahtzee.o scoring.o die.o
 	$(CXX) $(CXXFLAGS) -o test_yahtzee $(test_files) $(LDFLAGS)
-
-test_yahtzee.o: scoring.o
-	$(CXX) $(CXXFLAGS) -c $(test_files)
 
 main.o: yahtzee.o scoring.o die.o
 	$(CXX) $(CXXFLAGS) -c main.cpp
