@@ -25,7 +25,7 @@ void Yahtzee::startGame() {
                 std::cin >> dieToRoll;
                 for (int i = 0; i < 5; ++i)
                 {
-                    if(i == dieToRoll) 
+                    if(i == dieToRoll)
                     {
                         _dice[i] = _gameDie.roll();
                     }
@@ -49,7 +49,7 @@ void Yahtzee::startGame() {
                         _dice[i] = _gameDie.roll();
                     }
                     std::cout << _dice[i] << ", ";
-                } 
+                }
                 std::cout << "\n";
             }
             int choice;
@@ -73,6 +73,50 @@ void Yahtzee::startGame() {
             }
         }
     }
+}
+
+int Yahtzee::gameComplete() {
+    if (_round == 12)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+int Yahtzee::getDice(int out[5]) {
+    for (int i = 0; i < 5; ++i)
+    {
+        out[i] = _dice[i];
+    }
+    return 0;
+}
+
+int Yahtzee::getScore() {
+    return _score;
+}
+
+int Yahtzee::getRound() {
+    return _round;
+}
+
+int Yahtzee::getRollNum() {
+    return _rollNum;
+}
+
+int Yahtzee::rollAll() {
+    return 1;
+}
+
+int Yahtzee::rollOne(int toRoll) {
+    return 1;
+}
+
+int Yahtzee::rollMany(int toRoll[5]) {
+    return 1;
+}
+
+int Yahtzee::assignClass(int class) {
+    return 1;
 }
 
 void Yahtzee::scoreRound(int scoringClass) {
@@ -108,7 +152,7 @@ void Yahtzee::scoreRound(int scoringClass) {
             break;
         case 9 :
             roundScore += scoreStraight(_dice, 4);
-            break; 
+            break;
         case 10 :
             roundScore += scoreStraight(_dice, 5);
             break;
