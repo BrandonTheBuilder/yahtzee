@@ -2,77 +2,6 @@
 
 void Yahtzee::startGame() {
     std::cout << "Welcome to Yahtzee!!";
-    for (int i = 1; i <= 13; ++i)
-    {
-        std::cout << "Welcome to round " << i << "\n";
-        for (int i = 0; i < 3; ++i)
-        {
-            if (i == 0)
-            {
-                std::cout << "Time for the first roll \n";
-                for (int i = 0; i < 5; ++i)
-                {
-                    _dice[i] = _gameDie.roll();
-                    std::cout << _dice[i] << ", ";
-                }
-
-            }
-            else if (i == 1)
-            {
-                std::cout << "\nYou may re-roll one of the die\n";
-                int dieToRoll;
-                std::cout << "Enter a valid integer [0-4]\n";
-                std::cin >> dieToRoll;
-                for (int i = 0; i < 5; ++i)
-                {
-                    if(i == dieToRoll)
-                    {
-                        _dice[i] = _gameDie.roll();
-                    }
-                    std::cout << _dice[i] << ", ";
-                }
-                std::cout << "\n";
-            }
-            else if (i == 2)
-            {
-                std::cout << "You may re-roll as many die as you please.\n";
-                int diceToRoll[5];
-                std::cout << "For the 5 dice enter a 1 to re-roll and a 0 to keep";
-                for (int i = 0; i < 5; ++i)
-                {
-                    std::cin >> diceToRoll[i];
-                }
-                for (int i = 0; i < 5; ++i)
-                {
-                    if (diceToRoll[i] == 1)
-                    {
-                        _dice[i] = _gameDie.roll();
-                    }
-                    std::cout << _dice[i] << ", ";
-                }
-                std::cout << "\n";
-            }
-            int choice;
-            std::cout << "Keep this roll, 0 or keep rolling 1 \n";
-            std::cin >> choice;
-            if(choice == 0) {
-                break;
-            }
-        }
-        int roundScored = 0;
-        while(roundScored == 0) {
-            int scoringClass;
-            std::cout << "Assign a scoring class, 0-12\n";
-            std::cin >> scoringClass;
-            if(_usedClasses[scoringClass] == 0) {
-                scoreRound(scoringClass);
-                roundScored = 1;
-            }
-            else {
-                std::cout << "You have already used this class\n";
-            }
-        }
-    }
 }
 
 int Yahtzee::gameComplete() {
@@ -104,18 +33,68 @@ int Yahtzee::getRollNum() {
 }
 
 int Yahtzee::rollAll() {
-    return 1;
+    // First roll
+    if (_rollNum == 0 )
+    {
+        _rollNum += 1;
+    }
+    else {
+        return 1;
+    }
+    for (int i = 0; i < 5; ++i)
+    {
+        _dice[i] = _gameDie.roll();
+    }
+    return 0;
 }
 
 int Yahtzee::rollOne(int toRoll) {
-    return 1;
+    // "\nYou may re-roll one of the die\n";
+    if(_rollNum == 1) {
+        _rollNum += 1;
+    }
+    else {
+        return 1;
+    }
+    for (int i = 0; i < 5; ++i)
+    {
+        if(i == toRoll)
+        {
+            _dice[i] = _gameDie.roll();
+        }
+    }
+    return 0;
 }
 
 int Yahtzee::rollMany(int toRoll[5]) {
-    return 1;
+    if (_rollNum == 2) {
+        _rollNum += 1;
+    }
+    else {
+        return 1;
+    }
+    // "For the 5 dice enter a 1 to re-roll and a 0 to keep";
+    for (int i = 0; i < 5; ++i)
+    {
+        if (toRoll[i] == 1)
+        {
+            _dice[i] = _gameDie.roll();
+        }
+    }
+    return 0;
 }
 
-int Yahtzee::assignClass(int class) {
+int Yahtzee::assignClass(int scoringClass) {
+    if(_usedClasses[scoringClass] == 0) {
+        if (_rollNum == 3 && _round < 12)
+        {
+            //Reset the roll and increment the round
+            _rollNum = 0;
+            _round += 1;
+            scoreRound(scoringClass);
+            return 0;
+        }
+    }
     return 1;
 }
 

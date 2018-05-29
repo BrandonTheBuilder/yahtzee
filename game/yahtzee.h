@@ -11,6 +11,11 @@ public:
     int getScore();
     int getRound();
     int getRollNum();
+    int rollAll();
+    int rollOne(int toRoll);
+    int rollMany(int toRoll[5]);
+    int assignClass(int scoringClass);
+
 
 
 private:

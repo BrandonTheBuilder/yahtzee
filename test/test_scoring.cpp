@@ -1,4 +1,4 @@
-#include "../game/scoring.cpp"
+#include "../game/scoring.h"
 #include <gtest/gtest.h>
 
 TEST(ScoreXOfAKind, one) {
