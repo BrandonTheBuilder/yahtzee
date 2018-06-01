@@ -32,7 +32,7 @@ scoring.o: game/scoring.h
 	$(CXX) $(CXXFLAGS) -c game/scoring.cpp
 
 die.o: game/die.h
-	$(CXX) $(CXXFLAGS) -c game/die.cpp
+	$(CXX) $(CXXFLAGS) -c game/die.h
 
 clean:
 	rm -rf *o yahtzee test_yahtzee
