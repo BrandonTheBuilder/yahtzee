@@ -1,5 +1,5 @@
 #include "die.h"
 
 int Die::roll () {
-    return rand() % sides + 1;
+    return rand() % _sides + 1;
 }
