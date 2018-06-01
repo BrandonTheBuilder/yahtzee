@@ -13,7 +13,7 @@ int sum(int die[5]) {
 //Funtions for scoring yahtzee hand
 
 // Out is an array initialized to zero in which to hold the count
-void sortDie(int die[5], int out[6]) {
+void countDie(int die[5], int out[6]) {
     for (int i = 0; i < 5; ++i)
     {
         out[die[i]-1] += 1;
@@ -41,7 +41,7 @@ int scoreNumber(int die[5], int x) {
 */
 int scoreXOfAKind(int die[5], int x) {
     int ranks[6] = {0};
-    sortDie(die, ranks);
+    countDie(die, ranks);
     for (int i = 0; i < 6; ++i)
     {
         if(ranks[i] >= x) {
@@ -57,7 +57,7 @@ int scoreXOfAKind(int die[5], int x) {
 */
 int scoreFullHouse(int die[5]) {
     int ranks[6] = {0};
-    sortDie(die, ranks);
+    countDie(die, ranks);
     int three_house = 0;
     int two_house = 0;
     for (int i = 0; i < 6; ++i)
@@ -84,7 +84,7 @@ int scoreFullHouse(int die[5]) {
 */
 int scoreStraight(int die[5], int cutoff) {
     int ranks[6] = {0};
-    sortDie(die, ranks);
+    countDie(die, ranks);
     int count = 0;
     // Container sort the whole array
     for (int i = 0; i < 6; ++i)
@@ -116,7 +116,7 @@ int scoreChance(int die[5]) {
 */
 int scoreYahtzee(int die[5]) {
     int ranks[6] = {0};
-    sortDie(die, ranks);
+    countDie(die, ranks);
     for (int i = 0; i < 6; ++i)
      {
          if (ranks[i] >= 5)

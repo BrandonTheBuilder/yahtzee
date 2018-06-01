@@ -115,7 +115,7 @@ TEST(TestSort, One) {
     int die[5] = {2, 1, 3, 3, 4};
     int expected[6] = {1, 1, 2, 1, 0, 0};
     int sorted[6] = {0};
-    sortDie(die, sorted);
+    countDie(die, sorted);
     for (int i = 0; i < 5; ++i)
     {
         EXPECT_EQ(sorted[i], expected[i]) << "Vectors differ at index " << i;
@@ -126,7 +126,7 @@ TEST(TestSort, Two) {
     int die[5] = {6, 5, 1, 2, 3};
     int expected[6] = {1, 1, 1, 0, 1, 1};
     int sorted[6] = {0};
-    sortDie(die, sorted);
+    countDie(die, sorted);
     for (int i = 0; i < 5; ++i)
     {
         EXPECT_EQ(sorted[i], expected[i]) << "Vectors differ at index " << i;
@@ -137,7 +137,7 @@ TEST(TestSort, Three) {
     int die[5] = {4, 2, 1, 6, 3};
     int expected[6] = {1, 1, 1, 1, 0, 1};
     int sorted[6] = {0};
-    sortDie(die, sorted);
+    countDie(die, sorted);
     for (int i = 0; i < 5; ++i)
     {
         EXPECT_EQ(sorted[i], expected[i]) << "Vectors differ at index " << i;
@@ -148,7 +148,7 @@ TEST(TestSort, Four) {
     int die[5] = {6, 5, 1, 2, 2};
     int expected[6] = {1, 2, 0, 0, 1, 1};
     int sorted[6] = {0};
-    sortDie(die, sorted);
+    countDie(die, sorted);
     for (int i = 0; i < 5; ++i)
     {
         EXPECT_EQ(sorted[i], expected[i]) << "Vectors differ at index " << i;
@@ -159,7 +159,7 @@ TEST(TestSort, Five) {
     int die[5] = {5, 4, 3, 2, 1};
     int expected[6] = {1, 1, 1, 1, 1, 0};
     int sorted[6] = {0};
-    sortDie(die, sorted);
+    countDie(die, sorted);
     for (int i = 0; i < 5; ++i)
     {
         EXPECT_EQ(sorted[i], expected[i]) << "Vectors differ at index " << i;
