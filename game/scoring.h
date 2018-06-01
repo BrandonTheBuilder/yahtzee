@@ -1,6 +1,6 @@
 // Util function
 int sum(int die[5]);
-int sortDie(int die[5], int out[6]);
+void sortDie(int die[5], int out[6]);
 // Scoring funtions
 int scoreNumber(int die[5], int number);
 int scoreXOfAKind(int die[5], int x);

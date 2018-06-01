@@ -13,12 +13,11 @@ int sum(int die[5]) {
 //Funtions for scoring yahtzee hand
 
 // Out is an array initialized to zero in which to hold the count
-int sortDie(int die[5], int out[6]) {
+void sortDie(int die[5], int out[6]) {
     for (int i = 0; i < 5; ++i)
     {
         out[die[i]-1] += 1;
     }
-    return 0;
 }
 
 /*
