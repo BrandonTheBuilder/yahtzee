@@ -23,7 +23,7 @@ void countDie(int die[5], int out[6]) {
 /*
     scores x points for each die showing x pips
 */
-int scoreNumber(std::vector<int> die, int x) {
+int scoreNumber(const std::vector<int>& die, int x) {
     int score = 0;
     for (int i = 0; i < 5; ++i)
     {
