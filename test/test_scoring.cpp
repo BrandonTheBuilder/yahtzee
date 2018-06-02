@@ -155,6 +155,12 @@ TEST(TestSort, Four) {
     }
 }
 
+TEST(TestSort, scoreNumber) {
+    std::vector<int> die = {2, 3, 2, 2, 2};
+    int expected = 8;
+    EXPECT_EQ(scoreNumber(die, 2), expected);    
+}
+
 TEST(TestSort, Five) {
     int die[5] = {5, 4, 3, 2, 1};
     int expected[6] = {1, 1, 1, 1, 1, 0};
