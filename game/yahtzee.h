@@ -20,7 +20,7 @@ public:
 
 private:
     Die _gameDie = Die(6);
-    int _dice[5];
+    std::vector<int> _dice;
     int _usedClasses[13] = {0};
     int _score = 0;
     int _round = 0;
