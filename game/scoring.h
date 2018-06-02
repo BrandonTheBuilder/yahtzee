@@ -1,7 +1,7 @@
 #include <vector>
 // Util function
 int sum(const std::vector<int>& die);
-void countDie(const std::vector<int>& die, int out[6]);
+std::vector<int> countDie(const std::vector<int>& die);
 // Scoring funtions
 int scoreNumber(const std::vector<int>& die, int number);
 int scoreXOfAKind(const std::vector<int>& die, int x);

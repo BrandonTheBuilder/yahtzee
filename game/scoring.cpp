@@ -13,11 +13,13 @@ int sum(const std::vector<int>& die) {
 //Funtions for scoring yahtzee hand
 
 // Out is an array initialized to zero in which to hold the count
-void countDie(const std::vector<int>& die, int out[6]) {
+std::vector<int> countDie(const std::vector<int>& die) {
+    std::vector<int> out(6, 0);
     for (int i = 0; i < 5; ++i)
     {
         out[die[i]-1] += 1;
     }
+    return out;
 }
 
 /*
@@ -40,8 +42,8 @@ int scoreNumber(const std::vector<int>& die, int x) {
     x are the same rank. 
 */
 int scoreXOfAKind(const std::vector<int>& die, int x) {
-    int ranks[6] = {0};
-    countDie(die, ranks);
+    std::vector<int> ranks(6, 0);
+    ranks = countDie(die);
     for (int i = 0; i < 6; ++i)
     {
         if(ranks[i] >= x) {
@@ -56,8 +58,8 @@ int scoreXOfAKind(const std::vector<int>& die, int x) {
     2 showing another. 
 */
 int scoreFullHouse(const std::vector<int>& die) {
-    int ranks[6] = {0};
-    countDie(die, ranks);
+    std::vector<int> ranks(6, 0);
+    ranks = countDie(die);
     int three_house = 0;
     int two_house = 0;
     for (int i = 0; i < 6; ++i)
@@ -83,8 +85,8 @@ int scoreFullHouse(const std::vector<int>& die) {
     4 scores 40 if the cutoff is 5. 
 */
 int scoreStraight(const std::vector<int>& die, int cutoff) {
-    int ranks[6] = {0};
-    countDie(die, ranks);
+    std::vector<int> ranks(6, 0);
+    ranks = countDie(die);
     int count = 0;
     // Container sort the whole array
     for (int i = 0; i < 6; ++i)
@@ -115,8 +117,8 @@ int scoreChance(const std::vector<int>& die) {
     Scores 50 points if all die show the same rank
 */
 int scoreYahtzee(const std::vector<int>& die) {
-    int ranks[6] = {0};
-    countDie(die, ranks);
+    std::vector<int> ranks(6, 0);
+    ranks = countDie(die);
     for (int i = 0; i < 6; ++i)
      {
          if (ranks[i] >= 5)
