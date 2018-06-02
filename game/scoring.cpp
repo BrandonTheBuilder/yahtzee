@@ -1,7 +1,7 @@
 #include "yahtzee.h"
 #include <algorithm>
 // Util functions
-int sum(int die[5]) {
+int sum(const std::vector<int>& die) {
     int sum = 0;
     for (int i = 0; i < 5; ++i)
     {
@@ -13,7 +13,7 @@ int sum(int die[5]) {
 //Funtions for scoring yahtzee hand
 
 // Out is an array initialized to zero in which to hold the count
-void countDie(int die[5], int out[6]) {
+void countDie(const std::vector<int>& die, int out[6]) {
     for (int i = 0; i < 5; ++i)
     {
         out[die[i]-1] += 1;
@@ -39,7 +39,7 @@ int scoreNumber(const std::vector<int>& die, int x) {
     scores the total pips shown on all die if at least
     x are the same rank. 
 */
-int scoreXOfAKind(int die[5], int x) {
+int scoreXOfAKind(const std::vector<int>& die, int x) {
     int ranks[6] = {0};
     countDie(die, ranks);
     for (int i = 0; i < 6; ++i)
@@ -55,7 +55,7 @@ int scoreXOfAKind(int die[5], int x) {
     scores 25 if the roll has 3 dice showing one rank and 
     2 showing another. 
 */
-int scoreFullHouse(int die[5]) {
+int scoreFullHouse(const std::vector<int>& die) {
     int ranks[6] = {0};
     countDie(die, ranks);
     int three_house = 0;
@@ -82,7 +82,7 @@ int scoreFullHouse(int die[5]) {
     If cutoff die show consecutive ranks scores 30 if the cutoff is 
     4 scores 40 if the cutoff is 5. 
 */
-int scoreStraight(int die[5], int cutoff) {
+int scoreStraight(const std::vector<int>& die, int cutoff) {
     int ranks[6] = {0};
     countDie(die, ranks);
     int count = 0;
@@ -107,14 +107,14 @@ int scoreStraight(int die[5], int cutoff) {
 /*
     scores the sum of all pips shown on die. 
 */
-int scoreChance(int die[5]) {
+int scoreChance(const std::vector<int>& die) {
     return sum(die);
 }
 
 /*
     Scores 50 points if all die show the same rank
 */
-int scoreYahtzee(int die[5]) {
+int scoreYahtzee(const std::vector<int>& die) {
     int ranks[6] = {0};
     countDie(die, ranks);
     for (int i = 0; i < 6; ++i)
