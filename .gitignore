@@ -1,0 +1,5 @@
+*.o
+*.gch
+yahtzee
+test_yahtzee
+*~
